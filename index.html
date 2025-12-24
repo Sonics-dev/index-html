@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXUS | Hyperlink Site</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+
+body{
+  background:#050505;
+  color:#fff;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* BACKGROUND */
+.background{
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at top, rgba(0,255,255,.15), transparent 60%),
+    radial-gradient(circle at bottom, rgba(0,255,255,.08), transparent 70%);
+  z-index:-1;
+}
+
+/* CONTAINER */
+.container{
+  max-width:420px;
+  margin:auto;
+  padding:40px 20px;
+  text-align:center;
+}
+
+/* TITLE */
+.title{
+  font-size:38px;
+  letter-spacing:4px;
+  color:#eaffff;
+  text-shadow:0 0 15px #00ffff;
+}
+
+.subtitle{
+  margin-top:6px;
+  font-size:14px;
+  letter-spacing:3px;
+  color:#aaa;
+}
+
+/* LIST */
+.list{
+  margin-top:40px;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+/* CARD */
+.card{
+  background:#0b0b0b;
+  border:1px solid #1f1f1f;
+  padding:20px;
+  border-radius:14px;
+  font-size:18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.card:hover{
+  transform:scale(1.03);
+  border-color:#00ffff;
+}
+
+.card.active{
+  border:2px solid #00ffff;
+  box-shadow:0 0 18px rgba(0,255,255,.4);
+}
+
+/* BADGE */
+.badge{
+  background:linear-gradient(135deg,#00fff0,#00bcd4);
+  color:#000;
+  padding:5px 12px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<main class="container">
+  <h1 class="title">NEXUS</h1>
+  <p class="subtitle">HYPERLINK SITE</p>
+
+  <div class="list">
+    <div class="card active">
+      <span>is.gd</span>
+      <span class="badge">Recommended</span>
+    </div>
+
+    <div class="card">TinyURL</div>
+    <div class="card">Bit.ly</div>
+    <div class="card">Rebrand.ly</div>
+    <div class="card">Cutt.ly</div>
+    <div class="card">click.ly</div>
+  </div>
+</main>
+
+<script>
+const cards = document.querySelectorAll(".card");
+
+cards.forEach(card=>{
+  card.addEventListener("click",()=>{
+    cards.forEach(c=>c.classList.remove("active"));
+    card.classList.add("active");
+  });
+});
+</script>
+
+</body>
+</html>
